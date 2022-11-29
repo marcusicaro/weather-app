@@ -11,7 +11,6 @@ const displayTemperatureSwitch = document.getElementById('temperature-switch');
 const displayWeatherIcon = document.getElementById('weather-icon');
 const infoFeels = document.getElementById('feels');
 const infoHumidity = document.getElementById('humidity');
-// const infoChanceOfRain = document.getElementById('chance-of-rain');
 const infoWindSpeed = document.getElementById('wind-speed');
 
 // get weather data from the server
@@ -19,6 +18,7 @@ async function getWeatherData (aCity) {
     const response = await fetch(BASE_URL + aCity + API_KEY + "&units=metric");
     const weatherData = await response.json();
     displayCurrentWeather.textContent = weatherData.weather[0].main;
+    changeBg();
     displayCityName.textContent = weatherData.name;
     displayCurrentDate.textContent = new Date();
     displayTemperature.textContent = weatherData.main.temp + "ºC";
@@ -59,6 +59,31 @@ function convertTemperature () {
 }
 
 displayTemperatureSwitch.addEventListener('click', convertTemperature);
+
+const changeBg = () => {
+    if (displayCurrentWeather.textContent === 'Clouds'){
+        document.body.style.color = 'black';
+        return document.body.style.backgroundImage = `url('imgs/clouded.jpg')`;
+    } else if (displayCurrentWeather.textContent === 'Rain') {
+        document.body.style.color = 'white';
+        return document.body.style.backgroundImage = `url('imgs/rain.jpg')`
+    } else if (displayCurrentWeather.textContent === 'Snow') {
+        document.body.style.color = 'black';
+        return document.body.style.backgroundImage = `url('imgs/snow.jpg')`
+    }  else if (displayCurrentWeather.textContent === 'Thunderstorm') {
+        document.body.style.color = 'white';
+        return document.body.style.backgroundImage = `url('imgs/thunderstorm.jpg')`
+    }  else if (displayCurrentWeather.textContent === 'Drizzle') {
+        document.body.style.color = 'white';
+        return document.body.style.backgroundImage = `url('imgs/drizzle.jpg')`
+    }  else if (displayCurrentWeather.textContent === 'Clear') {
+        document.body.style.color = 'black';
+        return document.body.style.backgroundImage = `url('imgs/clearsky.jpg')`
+    }  else  {
+        document.body.style.color = 'black';
+        document.body.style.backgroundImage = `url('imgs/other.jpg')`
+    } 
+}
 
 // default city loader 
 getWeatherData('London');
