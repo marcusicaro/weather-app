@@ -1,0 +1,55 @@
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(imgs/clearsky.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* display: flex; */
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.current-content, .info-content {
+    padding: 15px;
+}
+
+.info-content h2 {
+    margin: 5px;
+}
+
+.info-content p {
+    margin-bottom: 5px;
+}
+
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input {
+    all: unset;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+#weather-icon {
+    font-size: 50px;
+}
+
+#temperature-switch {
+    cursor: pointer;
+}

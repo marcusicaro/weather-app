@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="icons/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+
+        <div class="current-content">
+            
+            <!-- display  -->
+            <h1 id="current-weather">Current Weather</h1>
+            <h3 id="city-name">City Name</h3>
+            <p id="current-date">Today, 29 nov 2022 11:50</p>
+            <h1 id="temperature">20ºC</h1>
+            <p id="temperature-switch">Switch to ºF</p>
+            <img src="http://openweathermap.org/img/w/04d.png" alt="" srcset="" id="weather-icon">
+      
+            <!-- search  -->
+            <div class="search">
+                <input type="text" id="city">
+                <button id="city-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+        </div>
+        
+        <div class="info-content">
+            
+            <div class="feels">
+                <p>Feels like</p>
+                <h2 id="feels">0ºC</h2>
+            </div>
+
+            <div class="humidity">
+                <p>Humidity</p>
+                <h2 id="humidity">X%</h2>
+            </div>
+
+            <!-- <div class="chance-of-rain">
+                <p>Chance of rain</p>
+                <h2 id="chance-of-rain">X%</h2>
+            </div> -->
+
+            <div class="wind-speed">
+                <p>Wind Speed</p>
+                <h2 id="wind-speed">10km/h</h2>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <!-- script  -->
+    <script src="main.js"></script>
+</body>
+</html>
