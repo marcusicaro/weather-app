@@ -9,12 +9,17 @@ const displayCurrentDate = document.getElementById('current-date');
 const displayTemperature = document.getElementById('temperature');
 const displayTemperatureSwitch = document.getElementById('temperature-switch');
 const displayWeatherIcon = document.getElementById('weather-icon');
+const displayError = document.getElementById('error-handling');
 const infoFeels = document.getElementById('feels');
 const infoHumidity = document.getElementById('humidity');
 const infoWindSpeed = document.getElementById('wind-speed');
 
 // get weather data from the server
 async function getWeatherData (aCity) {
+    try {
+    // displayCurrentWeather.textContent = 'Loading...';
+    displayError.textContent = '';
+    displayTemperatureSwitch.textContent = 'Convert to ºF';
     const response = await fetch(BASE_URL + aCity + API_KEY + "&units=metric");
     const weatherData = await response.json();
     displayCurrentWeather.textContent = weatherData.weather[0].main;
@@ -26,6 +31,9 @@ async function getWeatherData (aCity) {
     infoHumidity.textContent = weatherData.main.humidity + '%';
     displayWeatherIcon.src = "http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png"
     infoWindSpeed.textContent = weatherData.wind.speed + 'm/s';
+    } catch(err) {
+        displayError.textContent = 'City not found. Please enter a valid city name.';
+    }
 }
 
 // get city data based on the input 
